@@ -21,8 +21,13 @@ export function initMetaPixel(pixelId: string) {
   if (window.fbq) return;
 
   const n = (window.fbq = function (...args: unknown[]) {
-    // @ts-expect-error fila padrão do snippet do Meta
-    n.queue ? n.queue.push(args) : n.callMethod?.(...args);
+    // Fila padrão do snippet do Meta.
+    const callMethod = (n as typeof n & { callMethod?: (...args: unknown[]) => void }).callMethod;
+    if (callMethod) {
+      callMethod(...args);
+    } else {
+      n.queue.push(args);
+    }
   }) as Window["fbq"] & { queue: unknown[]; loaded: boolean; version: string };
 
   if (!window._fbq) window._fbq = n;

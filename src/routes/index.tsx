@@ -14,11 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { CHECKOUT_URL, META_PIXEL_ID, PACK } from "@/lib/pack-flavio";
-import {
-  initMetaPixel,
-  trackInitiateCheckout,
-  trackViewContent,
-} from "@/lib/meta-pixel";
+import { initMetaPixel, trackInitiateCheckout, trackViewContent } from "@/lib/meta-pixel";
 import { buildCheckoutUrl } from "@/lib/tracking";
 
 export const Route = createFileRoute("/")({
@@ -46,12 +42,42 @@ export const Route = createFileRoute("/")({
 });
 
 const artes = [
-  { src: "/pack-flavio/artes/arte-01.png", alt: "Arte 1 do Pack Flávio — Coleção Patriota", width: 5083, height: 2319 },
-  { src: "/pack-flavio/artes/arte-02.png", alt: "Arte 2 do Pack Flávio — Coleção Patriota", width: 5083, height: 2319 },
-  { src: "/pack-flavio/artes/arte-03.png", alt: "Arte 3 do Pack Flávio — Coleção Patriota", width: 5083, height: 2319 },
-  { src: "/pack-flavio/artes/arte-04.png", alt: "Arte 4 do Pack Flávio — Coleção Patriota", width: 5083, height: 2319 },
-  { src: "/pack-flavio/artes/arte-05.png", alt: "Arte 5 do Pack Flávio — Coleção Patriota", width: 5083, height: 2319 },
-  { src: "/pack-flavio/artes/arte-06.png", alt: "Arte 6 do Pack Flávio — Coleção Patriota", width: 5083, height: 2319 },
+  {
+    src: "/pack-flavio/artes/arte-01.png",
+    alt: "Arte 1 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-02.png",
+    alt: "Arte 2 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-03.png",
+    alt: "Arte 3 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-04.png",
+    alt: "Arte 4 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-05.png",
+    alt: "Arte 5 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-06.png",
+    alt: "Arte 6 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
 ];
 
 function useCheckoutUrl() {
@@ -145,7 +171,10 @@ function LandingPage() {
     <div className="min-h-screen bg-background text-foreground">
       {/* ============================== HERO ============================== */}
       <header className="mx-auto w-full max-w-3xl px-4 pb-10 pt-6 sm:pt-10">
-        <div className="flex items-center justify-center" aria-label="EstampaBox — Artes para suas criações">
+        <div
+          className="flex items-center justify-center"
+          aria-label="EstampaBox — Artes para suas criações"
+        >
           <div className="inline-flex items-center gap-3 rounded-xl border border-border bg-card/60 px-5 py-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-lg font-black text-background">
               EB
@@ -192,6 +221,20 @@ function LandingPage() {
           <div className="mt-5">
             <CtaButton>QUERO O PACK FLÁVIO</CtaButton>
           </div>
+          <div className="mx-auto mt-4 flex max-w-xl flex-wrap items-center justify-center gap-2 text-xs font-medium text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5">
+              <CreditCard className="h-3.5 w-3.5 text-primary" />
+              Checkout seguro
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5">
+              <Download className="h-3.5 w-3.5 text-primary" />
+              Acesso digital
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5">
+              <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+              Garantia de {PACK.garantiaDias} dias
+            </span>
+          </div>
           <p className="mt-3 text-xs text-muted-foreground">
             Acesso digital após a confirmação do pagamento.
           </p>
@@ -219,7 +262,10 @@ function LandingPage() {
 
           <div className="mt-10 grid gap-3 sm:grid-cols-2">
             {artes.map((arte) => (
-              <div key={arte.src} className="relative overflow-hidden rounded-lg border border-border bg-card">
+              <div
+                key={arte.src}
+                className="relative overflow-hidden rounded-lg border border-border bg-card"
+              >
                 <img
                   src={arte.src}
                   alt={arte.alt}
@@ -361,7 +407,10 @@ function LandingPage() {
           <p className="mt-1 text-sm text-muted-foreground">Criação de artes para canecas</p>
           <p className="mt-4 text-sm text-muted-foreground">
             Suporte:{" "}
-            <a href={`mailto:${PACK.suporte}`} className="text-primary underline-offset-2 hover:underline">
+            <a
+              href={`mailto:${PACK.suporte}`}
+              className="text-primary underline-offset-2 hover:underline"
+            >
               {PACK.suporte}
             </a>
           </p>
