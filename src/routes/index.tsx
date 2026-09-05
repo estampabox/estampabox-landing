@@ -26,13 +26,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "6 artes digitais para deixar suas canecas prontas para entrar no clima do Brasil. PNG em alta resolução, PDF da coleção, elementos extras e mockups. Produto 100% digital por R$ 14,90.",
+          "6 artes digitais para deixar suas canecas prontas para entrar no clima do Brasil. Arquivos em PNG + SVG + PDF, elementos extras e mockups. Produto 100% digital por R$ 14,90.",
       },
       { property: "og:title", content: "Pack Flávio Coleção Patriota | EstampaBox" },
       {
         property: "og:description",
         content:
-          "6 artes completas para canecas + elementos extras + mockups. Produto 100% digital por R$ 14,90.",
+          "6 artes completas para canecas em PNG + SVG + PDF. Produto 100% digital por R$ 14,90.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -46,39 +46,45 @@ const ASSET_VERSION = "20260905";
 const artes = [
   {
     src: "/pack-flavio/artes/arte-01.png",
+    previewSrc: "/pack-flavio/artes-preview/arte-01.webp",
     alt: "Arte 1 do Pack Flávio — Coleção Patriota",
-    width: 5083,
-    height: 2319,
+    width: 1400,
+    height: 639,
   },
   {
     src: "/pack-flavio/artes/arte-02.png",
+    previewSrc: "/pack-flavio/artes-preview/arte-02.webp",
     alt: "Arte 2 do Pack Flávio — Coleção Patriota",
-    width: 5083,
-    height: 2319,
+    width: 1400,
+    height: 639,
   },
   {
     src: "/pack-flavio/artes/arte-03.png",
+    previewSrc: "/pack-flavio/artes-preview/arte-03.webp",
     alt: "Arte 3 do Pack Flávio — Coleção Patriota",
-    width: 5083,
-    height: 2319,
+    width: 1400,
+    height: 639,
   },
   {
     src: "/pack-flavio/artes/arte-04.png",
+    previewSrc: "/pack-flavio/artes-preview/arte-04.webp",
     alt: "Arte 4 do Pack Flávio — Coleção Patriota",
-    width: 5083,
-    height: 2319,
+    width: 1400,
+    height: 639,
   },
   {
     src: "/pack-flavio/artes/arte-05.png",
+    previewSrc: "/pack-flavio/artes-preview/arte-05.webp",
     alt: "Arte 5 do Pack Flávio — Coleção Patriota",
-    width: 5083,
-    height: 2319,
+    width: 1400,
+    height: 639,
   },
   {
     src: "/pack-flavio/artes/arte-06.png",
+    previewSrc: "/pack-flavio/artes-preview/arte-06.webp",
     alt: "Arte 6 do Pack Flávio — Coleção Patriota",
-    width: 5083,
-    height: 2319,
+    width: 1400,
+    height: 639,
   },
 ];
 
@@ -111,7 +117,7 @@ function CtaButton({
 
 const entregaveis = [
   { icon: FileImage, texto: "6 artes completas para canecas" },
-  { icon: BadgeCheck, texto: "Arquivos PNG em alta resolução" },
+  { icon: BadgeCheck, texto: "Arquivos em PNG + SVG + PDF" },
   { icon: Files, texto: "PDF com as 6 artes da coleção" },
   { icon: Layers, texto: "Elementos extras em PNG para personalização" },
   { icon: MonitorSmartphone, texto: "Mockups da coleção" },
@@ -148,7 +154,7 @@ const faqs = [
   {
     pergunta: "Quais formatos recebo?",
     resposta:
-      "As artes são entregues em PNG em alta resolução e também há um PDF com as 6 artes da coleção. O pack inclui ainda elementos extras em PNG.",
+      "As artes são entregues em PNG + SVG + PDF. O pack inclui ainda elementos extras em PNG.",
   },
   {
     pergunta: "Como recebo os arquivos?",
@@ -223,6 +229,9 @@ function LandingPage() {
           <div className="mt-5">
             <CtaButton>QUERO O PACK FLÁVIO</CtaButton>
           </div>
+          <p className="mx-auto mt-3 max-w-sm text-xs font-medium text-muted-foreground">
+            Produto 100% digital. Nenhuma caneca ou item físico será enviado.
+          </p>
           <div className="mx-auto mt-4 flex max-w-xl flex-wrap items-center justify-center gap-2 text-xs font-medium text-muted-foreground">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5">
               <CreditCard className="h-3.5 w-3.5 text-primary" />
@@ -269,7 +278,7 @@ function LandingPage() {
                 className="relative aspect-[5083/2319] overflow-hidden rounded-lg border border-border bg-white"
               >
                 <img
-                  src={`${arte.src}?v=${ASSET_VERSION}`}
+                  src={`${arte.previewSrc}?v=${ASSET_VERSION}`}
                   alt={arte.alt}
                   width={arte.width}
                   height={arte.height}
@@ -361,9 +370,7 @@ function LandingPage() {
             <h2 className="text-2xl font-bold sm:text-3xl">
               {PACK.nome} — {PACK.colecao}
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              6 artes + elementos extras + mockups
-            </p>
+            <p className="mt-2 text-sm text-muted-foreground">6 artes em PNG + SVG + PDF</p>
             <p className="mt-6 text-5xl font-black tracking-tight text-accent">{PACK.preco}</p>
             <div className="mt-6">
               <CtaButton className="sm:w-full">QUERO ACESSAR O PACK</CtaButton>
@@ -418,14 +425,9 @@ function LandingPage() {
           </p>
           <p className="mt-2 text-xs text-muted-foreground">Produto digital.</p>
           <nav className="mt-4 flex items-center justify-center gap-4 text-xs text-muted-foreground">
-            {/* Substituir href="#" pelas URLs reais das páginas legais */}
-            <a href="#" className="underline-offset-2 hover:underline">
-              Termos de Uso
-            </a>
+            <span aria-disabled="true">Termos de Uso pendente</span>
             <span aria-hidden>·</span>
-            <a href="#" className="underline-offset-2 hover:underline">
-              Política de Privacidade
-            </a>
+            <span aria-disabled="true">Política de Privacidade pendente</span>
           </nav>
         </div>
       </footer>
