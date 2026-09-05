@@ -13,15 +13,6 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
-import packPrincipalAsset from "@/assets/pack-flavio/pack-flavio-principal.png.asset.json";
-import arte01Asset from "@/assets/pack-flavio/arte-01.webp.asset.json";
-import arte02Asset from "@/assets/pack-flavio/arte-02.webp.asset.json";
-import arte03Asset from "@/assets/pack-flavio/arte-03.webp.asset.json";
-import arte04Asset from "@/assets/pack-flavio/arte-04.webp.asset.json";
-import arte05Asset from "@/assets/pack-flavio/arte-05.webp.asset.json";
-import arte06Asset from "@/assets/pack-flavio/arte-06.webp.asset.json";
-import mockupFrenteAsset from "@/assets/pack-flavio/mockup-frente.png.asset.json";
-import mockupVersoAsset from "@/assets/pack-flavio/mockup-verso.png.asset.json";
 import { CHECKOUT_URL, META_PIXEL_ID, PACK } from "@/lib/pack-flavio";
 import {
   initMetaPixel,
@@ -55,12 +46,12 @@ export const Route = createFileRoute("/")({
 });
 
 const artes = [
-  { src: arte01Asset.url, alt: "Arte 1 do Pack Flávio — Coleção Patriota" },
-  { src: arte02Asset.url, alt: "Arte 2 do Pack Flávio — Coleção Patriota" },
-  { src: arte03Asset.url, alt: "Arte 3 do Pack Flávio — Coleção Patriota" },
-  { src: arte04Asset.url, alt: "Arte 4 do Pack Flávio — Coleção Patriota" },
-  { src: arte05Asset.url, alt: "Arte 5 do Pack Flávio — Coleção Patriota" },
-  { src: arte06Asset.url, alt: "Arte 6 do Pack Flávio — Coleção Patriota" },
+  { src: "/pack-flavio/arte-01.png", alt: "Arte 1 do Pack Flávio — Coleção Patriota" },
+  { src: "/pack-flavio/arte-02.png", alt: "Arte 2 do Pack Flávio — Coleção Patriota" },
+  { src: "/pack-flavio/arte-03.png", alt: "Arte 3 do Pack Flávio — Coleção Patriota" },
+  { src: "/pack-flavio/arte-04.png", alt: "Arte 4 do Pack Flávio — Coleção Patriota" },
+  { src: "/pack-flavio/arte-05.png", alt: "Arte 5 do Pack Flávio — Coleção Patriota" },
+  { src: "/pack-flavio/arte-06.png", alt: "Arte 6 do Pack Flávio — Coleção Patriota" },
 ];
 
 function useCheckoutUrl() {
@@ -154,13 +145,14 @@ function LandingPage() {
     <div className="min-h-screen bg-background text-foreground">
       {/* ============================== HERO ============================== */}
       <header className="mx-auto w-full max-w-3xl px-4 pb-10 pt-6 sm:pt-10">
-        <div className="flex items-center justify-center" aria-label="EstampaBox — Artes para suas criações">
-          <div className="inline-flex items-center gap-3 rounded-xl border border-border bg-card/60 px-5 py-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-lg font-black text-background">EB</div>
-            <div className="text-left leading-tight">
-              <div className="text-xl font-black tracking-tight">ESTAMPA<span className="text-primary">BOX</span></div>
-              <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">Artes para suas criações</div>
-            </div>
+        <div className="flex items-center justify-center">
+          <div className="aspect-[5/1] w-64 max-w-full overflow-hidden" role="img" aria-label="EstampaBox — Artes para suas criações">
+            <img
+              src={"/pack-flavio/pack-flavio-principal.png"}
+              alt=""
+              className="h-[500%] w-full object-cover object-top"
+              aria-hidden="true"
+            />
           </div>
         </div>
 
@@ -180,7 +172,7 @@ function LandingPage() {
 
         <div className="mt-8">
           <img
-            src={packPrincipalAsset.url}
+            src={"/pack-flavio/pack-flavio-principal.png"}
             alt="Pack Flávio — Coleção Patriota com seis artes digitais para canecas"
             className="aspect-square w-full rounded-xl object-cover"
             fetchPriority="high"
@@ -241,13 +233,13 @@ function LandingPage() {
           </p>
           <div className="mt-8 grid grid-cols-2 gap-3">
             <img
-              src={mockupFrenteAsset.url}
+              src={"/pack-flavio/mockup-frente.png"}
               alt="Caneca com arte do Pack Flávio vista pela frente"
               className="aspect-square w-full object-contain"
               loading="lazy"
             />
             <img
-              src={mockupVersoAsset.url}
+              src={"/pack-flavio/mockup-verso.png"}
               alt="Caneca com arte do Pack Flávio vista pelo verso"
               className="aspect-square w-full object-contain"
               loading="lazy"
