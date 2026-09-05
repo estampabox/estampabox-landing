@@ -41,6 +41,8 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
+const ASSET_VERSION = "20260905";
+
 const artes = [
   {
     src: "/pack-flavio/artes/arte-01.png",
@@ -264,21 +266,21 @@ function LandingPage() {
             {artes.map((arte) => (
               <div
                 key={arte.src}
-                className="relative overflow-hidden rounded-lg border border-border bg-card"
+                className="relative aspect-[5083/2319] overflow-hidden rounded-lg border border-border bg-white"
               >
                 <img
-                  src={arte.src}
+                  src={`${arte.src}?v=${ASSET_VERSION}`}
                   alt={arte.alt}
                   width={arte.width}
                   height={arte.height}
-                  className="aspect-[2.2/1] w-full object-contain"
+                  className="absolute inset-0 h-full w-full object-contain"
                   loading="lazy"
                 />
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 grid place-items-center bg-[repeating-linear-gradient(-24deg,transparent_0,transparent_72px,hsl(var(--background)/0.08)_72px,hsl(var(--background)/0.08)_132px)]"
+                  className="pointer-events-none absolute inset-0 grid place-items-center bg-[repeating-linear-gradient(-24deg,transparent_0,transparent_72px,rgb(7_36_20/0.08)_72px,rgb(7_36_20/0.08)_132px)]"
                 >
-                  <span className="select-none rounded-full border border-background/25 bg-background/15 px-4 py-1 text-xs font-bold uppercase tracking-[0.28em] text-background/45 backdrop-blur-[1px]">
+                  <span className="select-none rounded-full border border-background/20 bg-background/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.28em] text-background/40 backdrop-blur-[1px]">
                     EstampaBox
                   </span>
                 </div>
