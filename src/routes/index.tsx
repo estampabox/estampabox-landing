@@ -14,11 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { CHECKOUT_URL, META_PIXEL_ID, PACK } from "@/lib/pack-flavio";
-import {
-  initMetaPixel,
-  trackInitiateCheckout,
-  trackViewContent,
-} from "@/lib/meta-pixel";
+import { initMetaPixel, trackInitiateCheckout, trackViewContent } from "@/lib/meta-pixel";
 import { buildCheckoutUrl } from "@/lib/tracking";
 
 export const Route = createFileRoute("/")({
@@ -32,7 +28,7 @@ export const Route = createFileRoute("/")({
         content:
           "6 artes digitais para deixar suas canecas prontas para entrar no clima do Brasil. PNG em alta resolução, PDF da coleção, elementos extras e mockups. Produto 100% digital por R$ 14,90.",
       },
-      { property: "og:title", content: "Pack Flávio — Coleção Patriota | EstampaBox" },
+      { property: "og:title", content: "Pack Flávio Coleção Patriota | EstampaBox" },
       {
         property: "og:description",
         content:
@@ -46,12 +42,42 @@ export const Route = createFileRoute("/")({
 });
 
 const artes = [
-  { src: "/pack-flavio/arte-01.png", alt: "Arte 1 do Pack Flávio — Coleção Patriota" },
-  { src: "/pack-flavio/arte-02.png", alt: "Arte 2 do Pack Flávio — Coleção Patriota" },
-  { src: "/pack-flavio/arte-03.png", alt: "Arte 3 do Pack Flávio — Coleção Patriota" },
-  { src: "/pack-flavio/arte-04.png", alt: "Arte 4 do Pack Flávio — Coleção Patriota" },
-  { src: "/pack-flavio/arte-05.png", alt: "Arte 5 do Pack Flávio — Coleção Patriota" },
-  { src: "/pack-flavio/arte-06.png", alt: "Arte 6 do Pack Flávio — Coleção Patriota" },
+  {
+    src: "/pack-flavio/artes/arte-01.png",
+    alt: "Arte 1 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-02.png",
+    alt: "Arte 2 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-03.png",
+    alt: "Arte 3 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-04.png",
+    alt: "Arte 4 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-05.png",
+    alt: "Arte 5 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
+  {
+    src: "/pack-flavio/artes/arte-06.png",
+    alt: "Arte 6 do Pack Flávio — Coleção Patriota",
+    width: 5083,
+    height: 2319,
+  },
 ];
 
 function useCheckoutUrl() {
@@ -83,7 +109,7 @@ function CtaButton({
 
 const entregaveis = [
   { icon: FileImage, texto: "6 artes completas para canecas" },
-  { icon: BadgeCheck, texto: "Arquivos PNG em alta resolução — 300 DPI" },
+  { icon: BadgeCheck, texto: "Arquivos PNG em alta resolução" },
   { icon: Files, texto: "PDF com as 6 artes da coleção" },
   { icon: Layers, texto: "Elementos extras em PNG para personalização" },
   { icon: MonitorSmartphone, texto: "Mockups da coleção" },
@@ -145,14 +171,22 @@ function LandingPage() {
     <div className="min-h-screen bg-background text-foreground">
       {/* ============================== HERO ============================== */}
       <header className="mx-auto w-full max-w-3xl px-4 pb-10 pt-6 sm:pt-10">
-        <div className="flex items-center justify-center">
-          <div className="aspect-[5/1] w-64 max-w-full overflow-hidden" role="img" aria-label="EstampaBox — Artes para suas criações">
-            <img
-              src={"/pack-flavio/pack-flavio-principal.png"}
-              alt=""
-              className="h-[500%] w-full object-cover object-top"
-              aria-hidden="true"
-            />
+        <div
+          className="flex items-center justify-center"
+          aria-label="EstampaBox — Artes para suas criações"
+        >
+          <div className="inline-flex items-center gap-3 rounded-xl border border-border bg-card/60 px-5 py-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-lg font-black text-background">
+              EB
+            </div>
+            <div className="text-left leading-tight">
+              <div className="text-xl font-black tracking-tight">
+                ESTAMPA<span className="text-primary">BOX</span>
+              </div>
+              <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                Artes para suas criações
+              </div>
+            </div>
           </div>
         </div>
 
@@ -172,8 +206,10 @@ function LandingPage() {
 
         <div className="mt-8">
           <img
-            src={"/pack-flavio/pack-flavio-principal.png"}
+            src={"/pack-flavio/hero/pack-flavio-principal.png"}
             alt="Pack Flávio — Coleção Patriota com seis artes digitais para canecas"
+            width={1402}
+            height={1122}
             className="aspect-square w-full rounded-xl object-cover"
             fetchPriority="high"
           />
@@ -184,6 +220,20 @@ function LandingPage() {
           <p className="text-5xl font-black tracking-tight text-accent">{PACK.preco}</p>
           <div className="mt-5">
             <CtaButton>QUERO O PACK FLÁVIO</CtaButton>
+          </div>
+          <div className="mx-auto mt-4 flex max-w-xl flex-wrap items-center justify-center gap-2 text-xs font-medium text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5">
+              <CreditCard className="h-3.5 w-3.5 text-primary" />
+              Checkout seguro
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5">
+              <Download className="h-3.5 w-3.5 text-primary" />
+              Acesso digital
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5">
+              <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+              Garantia de {PACK.garantiaDias} dias
+            </span>
           </div>
           <p className="mt-3 text-xs text-muted-foreground">
             Acesso digital após a confirmação do pagamento.
@@ -212,13 +262,27 @@ function LandingPage() {
 
           <div className="mt-10 grid gap-3 sm:grid-cols-2">
             {artes.map((arte) => (
-              <img
+              <div
                 key={arte.src}
-                src={arte.src}
-                alt={arte.alt}
-                className="aspect-[2.2/1] w-full rounded-lg border border-border bg-card object-contain"
-                loading="lazy"
-              />
+                className="relative overflow-hidden rounded-lg border border-border bg-card"
+              >
+                <img
+                  src={arte.src}
+                  alt={arte.alt}
+                  width={arte.width}
+                  height={arte.height}
+                  className="aspect-[2.2/1] w-full object-contain"
+                  loading="lazy"
+                />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 grid place-items-center bg-[repeating-linear-gradient(-24deg,transparent_0,transparent_72px,hsl(var(--background)/0.08)_72px,hsl(var(--background)/0.08)_132px)]"
+                >
+                  <span className="select-none rounded-full border border-background/25 bg-background/15 px-4 py-1 text-xs font-bold uppercase tracking-[0.28em] text-background/45 backdrop-blur-[1px]">
+                    EstampaBox
+                  </span>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -233,14 +297,18 @@ function LandingPage() {
           </p>
           <div className="mt-8 grid grid-cols-2 gap-3">
             <img
-              src={"/pack-flavio/mockup-frente.png"}
+              src={"/pack-flavio/mockups/mockup-frente.png"}
               alt="Caneca com arte do Pack Flávio vista pela frente"
+              width={340}
+              height={340}
               className="aspect-square w-full object-contain"
               loading="lazy"
             />
             <img
-              src={"/pack-flavio/mockup-verso.png"}
+              src={"/pack-flavio/mockups/mockup-verso.png"}
               alt="Caneca com arte do Pack Flávio vista pelo verso"
+              width={340}
+              height={340}
               className="aspect-square w-full object-contain"
               loading="lazy"
             />
@@ -339,7 +407,10 @@ function LandingPage() {
           <p className="mt-1 text-sm text-muted-foreground">Criação de artes para canecas</p>
           <p className="mt-4 text-sm text-muted-foreground">
             Suporte:{" "}
-            <a href={`mailto:${PACK.suporte}`} className="text-primary underline-offset-2 hover:underline">
+            <a
+              href={`mailto:${PACK.suporte}`}
+              className="text-primary underline-offset-2 hover:underline"
+            >
               {PACK.suporte}
             </a>
           </p>
