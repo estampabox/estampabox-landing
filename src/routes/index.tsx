@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
         content:
           "6 artes digitais para deixar suas canecas prontas para entrar no clima do Brasil. PNG em alta resolução, PDF da coleção, elementos extras e mockups. Produto 100% digital por R$ 14,90.",
       },
-      { property: "og:title", content: "Pack Flávio — Coleção Patriota | EstampaBox" },
+      { property: "og:title", content: "Pack Flávio Coleção Patriota | EstampaBox" },
       {
         property: "og:description",
         content:
@@ -109,7 +109,7 @@ function CtaButton({
 
 const entregaveis = [
   { icon: FileImage, texto: "6 artes completas para canecas" },
-  { icon: BadgeCheck, texto: "Arquivos PNG em alta resolução — 300 DPI" },
+  { icon: BadgeCheck, texto: "Arquivos PNG em alta resolução" },
   { icon: Files, texto: "PDF com as 6 artes da coleção" },
   { icon: Layers, texto: "Elementos extras em PNG para personalização" },
   { icon: MonitorSmartphone, texto: "Mockups da coleção" },
