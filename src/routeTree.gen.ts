@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PackAugustoRouteImport } from './routes/pack-augusto'
+import { Route as PackLulaRouteImport } from './routes/pack-lula'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PackAugustoRoute = PackAugustoRouteImport.update({
+  id: '/pack-augusto',
+  path: '/pack-augusto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackLulaRoute = PackLulaRouteImport.update({
+  id: '/pack-lula',
+  path: '/pack-lula',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/pack-augusto': typeof PackAugustoRoute
+  '/pack-lula': typeof PackLulaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/pack-augusto': typeof PackAugustoRoute
+  '/pack-lula': typeof PackLulaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/pack-augusto': typeof PackAugustoRoute
+  '/pack-lula': typeof PackLulaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/pack-augusto' | '/pack-lula'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/pack-augusto' | '/pack-lula'
+  id: '__root__' | '/' | '/pack-augusto' | '/pack-lula'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PackAugustoRoute: typeof PackAugustoRoute
+  PackLulaRoute: typeof PackLulaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pack-augusto': {
+      id: '/pack-augusto'
+      path: '/pack-augusto'
+      fullPath: '/pack-augusto'
+      preLoaderRoute: typeof PackAugustoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pack-lula': {
+      id: '/pack-lula'
+      path: '/pack-lula'
+      fullPath: '/pack-lula'
+      preLoaderRoute: typeof PackLulaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PackAugustoRoute: PackAugustoRoute,
+  PackLulaRoute: PackLulaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

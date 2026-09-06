@@ -1,21 +1,19 @@
 /**
- * Configuração central do Pack Flávio — Coleção Patriota.
- *
- * ⚠️ SUBSTITUIR ANTES DE PUBLICAR:
- * - CHECKOUT_URL: cole aqui a URL real do checkout (ex.: Hotmart, Kiwify, etc.)
- * - META_PIXEL_ID: cole o ID real do seu Meta Pixel (somente números).
- *   Enquanto estiver vazio, o pixel não é carregado e nenhum evento é disparado.
+ * Compatibilidade para imports antigos do Pack Flávio.
+ * A fonte de verdade agora é src/lib/packs.ts.
  */
 
-export const CHECKOUT_URL = "https://pay.cakto.com.br/3agfs9n_1082656";
+import { META_PIXEL_ID as PIXEL_ID, packs } from "./packs";
 
-export const META_PIXEL_ID = "1595712898900708";
+export const CHECKOUT_URL = packs.flavio.checkoutUrl;
+
+export const META_PIXEL_ID = PIXEL_ID;
 
 export const PACK = {
-  nome: "Pack Flávio",
-  colecao: "Coleção Patriota",
-  preco: "R$ 14,90",
-  precoNumero: 14.9,
-  suporte: "estampabox.suporte@gmail.com",
-  garantiaDias: 7,
+  nome: packs.flavio.nome,
+  colecao: packs.flavio.colecao,
+  preco: packs.flavio.preco,
+  precoNumero: packs.flavio.precoNumero,
+  suporte: packs.flavio.suporte,
+  garantiaDias: packs.flavio.garantiaDias,
 } as const;
