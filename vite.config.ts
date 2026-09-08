@@ -4,10 +4,69 @@
 //     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
+import { existsSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const vercelOutputDir = process.env["VERCEL_OUTPUT_DIR"] || ".vercel/output";
+
+function ensureVercelBuildOutputConfig() {
+  return {
+    name: "ensure-vercel-build-output-config",
+    apply: "build" as const,
+    closeBundle() {
+      const serverFunctionDir = join(vercelOutputDir, "functions", "__server.func");
+
+      if (!existsSync(join(serverFunctionDir, "index.mjs"))) {
+        return;
+      }
+
+      const buildConfigPath = join(vercelOutputDir, "config.json");
+      if (!existsSync(buildConfigPath)) {
+        writeFileSync(
+          buildConfigPath,
+          JSON.stringify(
+            {
+              version: 3,
+              routes: [{ handle: "filesystem" }, { src: "/(.*)", dest: "/__server" }],
+            },
+            null,
+            2,
+          ),
+        );
+      }
+
+      const functionConfigPath = join(serverFunctionDir, ".vc-config.json");
+      if (!existsSync(functionConfigPath)) {
+        writeFileSync(
+          functionConfigPath,
+          JSON.stringify(
+            {
+              runtime: "nodejs22.x",
+              handler: "index.mjs",
+              launcherType: "Nodejs",
+              shouldAddHelpers: false,
+              supportsResponseStreaming: true,
+            },
+            null,
+            2,
+          ),
+        );
+      }
+    },
+  };
+}
+
 export default defineConfig({
-  nitro: { preset: "vercel" },
+  nitro: {
+    preset: "vercel",
+    output: {
+      dir: vercelOutputDir,
+    },
+  },
+  vite: {
+    plugins: [ensureVercelBuildOutputConfig()],
+  },
   tanstackStart: {
     pages: [
       { path: "/", prerender: { enabled: true } },
