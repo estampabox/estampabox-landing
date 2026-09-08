@@ -19,6 +19,9 @@ dist-ssr
 # Netlify
 .netlify/
 
+# Vercel
+.vercel/
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
