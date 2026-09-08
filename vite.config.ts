@@ -18,11 +18,13 @@ export default defineConfig({
         async writeBundle() {
           const serverDir = join(process.cwd(), "dist", "server");
           await mkdir(serverDir, { recursive: true });
-          await writeFile(
-            join(serverDir, "index.mjs"),
-            'import handler from "./main.mjs";\nexport default { fetch(request) { return handler(request); } };\n',
-            "utf8",
-          );
+          const serverEntryAlias =
+            'import handler from "./main.mjs";\nexport default { fetch(request) { return handler(request); } };\n';
+
+          await Promise.all([
+            writeFile(join(serverDir, "index.mjs"), serverEntryAlias, "utf8"),
+            writeFile(join(serverDir, "server.js"), serverEntryAlias, "utf8"),
+          ]);
         },
       },
     ],
