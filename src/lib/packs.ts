@@ -58,8 +58,8 @@ export type PackConfig = {
 
 const suporte = "estampabox.suporte@gmail.com";
 const garantiaDias = 7;
-const preco = "R$ 14,90";
-const precoNumero = 14.9;
+const preco = "R$ 9,90";
+const precoNumero = 9.9;
 
 const baseInclusoes: PackInclusion[] = [
   { icon: FileImage, texto: "6 artes completas para canecas" },
@@ -158,9 +158,9 @@ export const packs = {
     subtitulo:
       "Pack Flávio — Coleção Patriota com artes digitais prontas para personalização de canecas.",
     descricaoSeo:
-      "6 artes digitais para deixar suas canecas prontas para entrar no clima do Brasil. PNG em alta resolução, PDF da coleção, elementos extras e mockups. Produto 100% digital por R$ 14,90.",
+      "6 artes digitais para deixar suas canecas prontas para entrar no clima do Brasil. PNG em alta resolução, PDF da coleção, elementos extras e mockups. Produto 100% digital por R$ 9,90.",
     ogDescricao:
-      "6 artes completas para canecas + elementos extras + mockups. Produto 100% digital por R$ 14,90.",
+      "6 artes completas para canecas + elementos extras + mockups. Produto 100% digital por R$ 9,90.",
     preco,
     precoNumero,
     quantidadeArtes: 6,
@@ -188,9 +188,9 @@ export const packs = {
     subtitulo:
       "Pack Lula — Coleção Brasil do Povo com artes digitais prontas para personalização de canecas.",
     descricaoSeo:
-      "6 artes digitais do Pack Lula — Coleção Brasil do Povo para personalização de canecas. Produto 100% digital por R$ 14,90.",
+      "6 artes digitais do Pack Lula — Coleção Brasil do Povo para personalização de canecas. Produto 100% digital por R$ 9,90.",
     ogDescricao:
-      "6 artes digitais para canecas do Pack Lula — Coleção Brasil do Povo. Produto 100% digital por R$ 14,90.",
+      "6 artes digitais para canecas do Pack Lula — Coleção Brasil do Povo. Produto 100% digital por R$ 9,90.",
     preco,
     precoNumero,
     quantidadeArtes: 6,
@@ -226,9 +226,9 @@ export const packs = {
     subtitulo:
       "Pack Augusto Cury — Coleção Brasil Avante com artes digitais prontas para personalização de canecas.",
     descricaoSeo:
-      "6 artes digitais do Pack Augusto Cury — Coleção Brasil Avante para personalização de canecas. Produto 100% digital por R$ 14,90.",
+      "6 artes digitais do Pack Augusto Cury — Coleção Brasil Avante para personalização de canecas. Produto 100% digital por R$ 9,90.",
     ogDescricao:
-      "6 artes digitais para canecas do Pack Augusto Cury — Coleção Brasil Avante. Produto 100% digital por R$ 14,90.",
+      "6 artes digitais para canecas do Pack Augusto Cury — Coleção Brasil Avante. Produto 100% digital por R$ 9,90.",
     preco,
     precoNumero,
     quantidadeArtes: 6,
@@ -256,3 +256,4 @@ export const packs = {
     faqs: createFaqs("Pack Augusto Cury"),
   },
 } satisfies Record<PackSlug, PackConfig>;
+
